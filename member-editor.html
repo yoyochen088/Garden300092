@@ -171,6 +171,7 @@
 </div>
 
 <div class="bottom-bar">
+  <button class="btn btn-secondary" onclick="resetData()">🔄 重置資料</button>
   <button class="btn btn-secondary" onclick="loadSaved()">↩ 還原上次儲存</button>
   <button class="btn btn-secondary" onclick="saveData()">💾 儲存進度</button>
   <button class="btn btn-primary" onclick="generateCode()">📋 產生程式碼</button>
@@ -213,8 +214,8 @@ function initData() {
   const saved = localStorage.getItem('memberEditorData');
   if (saved) {
     const parsed = JSON.parse(saved);
-    // 版本檢查：若沒有 version 欄位代表是舊格式（用 index），直接捨棄重建
-    if (!parsed.version || parsed.version < 2) {
+    // version < 3 代表舊格式，強制重建
+    if (!parsed.version || parsed.version < 3) {
       localStorage.removeItem('memberEditorData');
       initFromFlowers();
       return;
@@ -374,10 +375,21 @@ function toggleOwn(mi, flowerID, checkbox) {
 }
 
 // ── 儲存 / 還原 ──
+function resetData() {
+  if (!confirm('確定重置？將清除所有暫存資料，從 flowers.js / members.js 重新讀取。')) return;
+  localStorage.removeItem('memberEditorData');
+  ownership = {};
+  initFromFlowers();
+  renderMemberList();
+  refreshMemberPicker();
+  renderFlowerOwnership();
+  alert('✅ 已重置！');
+}
+
 function saveData() {
   const serialOwnership = {};
   Object.keys(ownership).forEach(k => { serialOwnership[k] = [...ownership[k]]; });
-  localStorage.setItem('memberEditorData', JSON.stringify({ version: 2, members, ownership: serialOwnership }));
+  localStorage.setItem('memberEditorData', JSON.stringify({ version: 3, members, ownership: serialOwnership }));
   alert('✅ 已儲存進度！');
 }
 
