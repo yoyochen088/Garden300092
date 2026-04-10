@@ -156,7 +156,16 @@
   <div class="member-select">
     <label>選擇成員：</label>
     <select id="memberPicker" onchange="renderFlowerOwnership()"></select>
-    <span id="ownedCount" style="font-size:0.85rem;color:#9e6b7e;"></span>
+    <label style="margin-left:12px;">品質：</label>
+    <select id="qualityFilter" onchange="renderFlowerOwnership()">
+      <option value="">全部</option>
+      <option value="仙">仙</option>
+      <option value="華">華</option>
+      <option value="珍">珍</option>
+      <option value="普">普</option>
+      <option value="凡">凡</option>
+    </select>
+    <span id="ownedCount" style="font-size:0.85rem;color:#9e6b7e;margin-left:8px;"></span>
   </div>
   <div class="flower-grid" id="flowerOwnerGrid"></div>
 </div>
@@ -307,11 +316,17 @@ function renderFlowerOwnership() {
   const mi = parseInt(document.getElementById('memberPicker').value);
   if (isNaN(mi) || !members[mi]) return;
   const owned = ownership[mi] || new Set();
+  const qFilter = document.getElementById('qualityFilter').value;
 
-  document.getElementById('ownedCount').textContent = `已擁有 ${owned.size} / ${flowers.length} 種`;
+  const filtered = flowers.map((f, fi) => ({ f, fi }))
+    .filter(({ f }) => !qFilter || f.quality === qFilter);
+
+  document.getElementById('ownedCount').textContent =
+    `已擁有 ${owned.size} / ${flowers.length} 種` +
+    (qFilter ? `（顯示 ${filtered.length} 種${qFilter}品）` : '');
 
   const grid = document.getElementById('flowerOwnerGrid');
-  grid.innerHTML = flowers.map((f, fi) => {
+  grid.innerHTML = filtered.map(({ f, fi }) => {
     const isOwned = owned.has(fi);
     const thumb = f.img
       ? `<img class="flower-thumb" src="${f.img}" alt="${f.name}" onerror="this.style.opacity=0.3">`
