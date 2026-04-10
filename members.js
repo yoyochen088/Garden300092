@@ -32,7 +32,7 @@ window.MEMBERS = [
   {
     "id": 6,
     "gameId": "gt1xv4nusqz",
-    "nickname": "茉莉金萱",
+    "nickname": "茉莉金萱☆ ”",
     "note": "理事"
   },
   {
@@ -86,7 +86,7 @@ window.MEMBERS = [
   {
     "id": 15,
     "gameId": "gt020c91b73",
-    "nickname": "花與小日子",
+    "nickname": "花與小日子✨",
     "note": "菁英"
   },
   {
@@ -122,7 +122,7 @@ window.MEMBERS = [
   {
     "id": 21,
     "gameId": "gt06f9a8bwx",
-    "nickname": "49 離寶",
+    "nickname": "ʚ 離寶 ɞ",
     "note": "成員"
   },
   {
@@ -134,7 +134,7 @@ window.MEMBERS = [
   {
     "id": 23,
     "gameId": "gt02rlxuoqd",
-    "nickname": "21 離寶",
+    "nickname": "✿離寶✿⏦₊",
     "note": "成員"
   },
   {
@@ -146,7 +146,7 @@ window.MEMBERS = [
   {
     "id": 25,
     "gameId": "gt02ziuyilz",
-    "nickname": "葡萄啵啵",
+    "nickname": "葡萄啵啵🥄",
     "note": "成員"
   },
   {
@@ -210,12 +210,6 @@ window.MEMBERS = [
     "note": "成員"
   },
   {
-    "id": 36,
-    "gameId": "gt036x1i83c",
-    "nickname": "取經不如取暖",
-    "note": "成員"
-  },
-  {
     "id": 37,
     "gameId": "gt025mfu7zk",
     "nickname": "朱紫沐",
@@ -230,7 +224,7 @@ window.MEMBERS = [
   {
     "id": 39,
     "gameId": "gt02aqzmbht",
-    "nickname": "晴晴小太陽",
+    "nickname": "☀晴晴小太陽",
     "note": "成員"
   },
   {
@@ -242,7 +236,7 @@ window.MEMBERS = [
   {
     "id": 41,
     "gameId": "gt04a2zjbi9",
-    "nickname": "懶懶熊",
+    "nickname": "懶懶熊•ɞ•",
     "note": "成員"
   },
   {
