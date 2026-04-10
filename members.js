@@ -121,7 +121,7 @@ window.MEMBERS = [
   },
   {
     "id": 21,
-    "gameId": "gt0619a8bwx",
+    "gameId": "gt06f9a8bwx",
     "nickname": "49 離寶",
     "note": "成員"
   },
@@ -187,7 +187,7 @@ window.MEMBERS = [
   },
   {
     "id": 32,
-    "gameId": "gt1ildv1ep",
+    "gameId": "gt1ildtv1ep",
     "nickname": "花 園 主",
     "note": "成員"
   },
@@ -205,13 +205,13 @@ window.MEMBERS = [
   },
   {
     "id": 35,
-    "gameId": "ft15qdqf6rx",
+    "gameId": "gt15qdqf6rx",
     "nickname": "巧雲",
     "note": "成員"
   },
   {
     "id": 36,
-    "gameId": "ft036x1i83c",
+    "gameId": "gt036x1i83c",
     "nickname": "取經不如取暖",
     "note": "成員"
   },
@@ -223,7 +223,7 @@ window.MEMBERS = [
   },
   {
     "id": 38,
-    "gameId": "ft02v0xbebq",
+    "gameId": "gt02v0xnenq",
     "nickname": "阿帕茲",
     "note": "成員"
   },
