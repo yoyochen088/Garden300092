@@ -207,19 +207,19 @@ let flowers = [];   // 從 window.FLOWERS，含 owners
 let ownership = {};
 
 function initData() {
+  // flowers 永遠從 flowers.js 取最新版，不存入 localStorage
+  flowers = JSON.parse(JSON.stringify(window.FLOWERS || []));
+
   const saved = localStorage.getItem('memberEditorData');
   if (saved) {
     const parsed = JSON.parse(saved);
     members   = parsed.members;
-    flowers   = parsed.flowers;
     ownership = {};
     Object.keys(parsed.ownership).forEach(k => {
       ownership[k] = new Set(parsed.ownership[k]);
     });
   } else {
     members = JSON.parse(JSON.stringify(window.MEMBERS || []));
-    flowers = JSON.parse(JSON.stringify(window.FLOWERS || []));
-    // 從 flowers.owners 初始化 ownership
     members.forEach((m, mi) => {
       ownership[mi] = new Set();
       flowers.forEach((f, fi) => {
@@ -362,7 +362,8 @@ function toggleOwn(mi, fi, checkbox) {
 function saveData() {
   const serialOwnership = {};
   Object.keys(ownership).forEach(k => { serialOwnership[k] = [...ownership[k]]; });
-  localStorage.setItem('memberEditorData', JSON.stringify({ members, flowers, ownership: serialOwnership }));
+  // flowers 不存入 localStorage，永遠從 flowers.js 讀
+  localStorage.setItem('memberEditorData', JSON.stringify({ members, ownership: serialOwnership }));
   alert('✅ 已儲存進度！');
 }
 
@@ -371,7 +372,8 @@ function loadSaved() {
   if (!saved) { alert('找不到儲存的資料'); return; }
   const parsed = JSON.parse(saved);
   members   = parsed.members;
-  flowers   = parsed.flowers;
+  // flowers 永遠從 window.FLOWERS 取最新
+  flowers   = JSON.parse(JSON.stringify(window.FLOWERS || []));
   ownership = {};
   Object.keys(parsed.ownership).forEach(k => { ownership[k] = new Set(parsed.ownership[k]); });
   renderMemberList();
