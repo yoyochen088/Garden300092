@@ -207,28 +207,38 @@ let flowers = [];   // 從 window.FLOWERS，含 owners
 let ownership = {};
 
 function initData() {
-  // flowers 永遠從 flowers.js 取最新版，不存入 localStorage
+  // flowers 永遠從 flowers.js 取最新版
   flowers = JSON.parse(JSON.stringify(window.FLOWERS || []));
 
   const saved = localStorage.getItem('memberEditorData');
   if (saved) {
     const parsed = JSON.parse(saved);
+    // 版本檢查：若沒有 version 欄位代表是舊格式（用 index），直接捨棄重建
+    if (!parsed.version || parsed.version < 2) {
+      localStorage.removeItem('memberEditorData');
+      initFromFlowers();
+      return;
+    }
     members   = parsed.members;
     ownership = {};
     Object.keys(parsed.ownership).forEach(k => {
-      ownership[k] = new Set(parsed.ownership[k]);
+      ownership[k] = new Set(parsed.ownership[k].map(Number));
     });
   } else {
-    members = JSON.parse(JSON.stringify(window.MEMBERS || []));
-    members.forEach((m, mi) => {
-      ownership[mi] = new Set();
-      flowers.forEach((f, fi) => {
-        if (f.owners && f.owners.includes(m.nickname)) {
-          ownership[mi].add(fi);
-        }
-      });
-    });
+    initFromFlowers();
   }
+}
+
+function initFromFlowers() {
+  members = JSON.parse(JSON.stringify(window.MEMBERS || []));
+  members.forEach((m, mi) => {
+    ownership[mi] = new Set();
+    flowers.forEach(f => {
+      if (f.owners && f.owners.includes(m.nickname)) {
+        ownership[mi].add(f.id);
+      }
+    });
+  });
 }
 
 // ── Tab ──
@@ -318,22 +328,23 @@ function renderFlowerOwnership() {
   const owned = ownership[mi] || new Set();
   const qFilter = document.getElementById('qualityFilter').value;
 
-  const filtered = flowers.map((f, fi) => ({ f, fi }))
-    .filter(({ f }) => !qFilter || f.quality === qFilter);
+  const filtered = flowers.filter(f => !qFilter || f.quality === qFilter);
 
+  // 已擁有數永遠以全部花計算
+  const totalOwned = flowers.filter(f => owned.has(f.id)).length;
   document.getElementById('ownedCount').textContent =
-    `已擁有 ${owned.size} / ${flowers.length} 種` +
+    `已擁有 ${totalOwned} / ${flowers.length} 種` +
     (qFilter ? `（顯示 ${filtered.length} 種${qFilter}品）` : '');
 
   const grid = document.getElementById('flowerOwnerGrid');
-  grid.innerHTML = filtered.map(({ f, fi }) => {
-    const isOwned = owned.has(fi);
+  grid.innerHTML = filtered.map(f => {
+    const isOwned = owned.has(f.id);
     const thumb = f.img
       ? `<img class="flower-thumb" src="${f.img}" alt="${f.name}" onerror="this.style.opacity=0.3">`
       : `<div class="flower-thumb" style="display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🌸</div>`;
     return `
       <label class="flower-check ${isOwned ? 'owned' : ''}">
-        <input type="checkbox" ${isOwned ? 'checked' : ''} onchange="toggleOwn(${mi},${fi},this)">
+        <input type="checkbox" ${isOwned ? 'checked' : ''} onchange="toggleOwn(${mi},${f.id},this)">
         ${thumb}
         <div class="flower-info">
           <div class="fname">${f.name}</div>
@@ -344,26 +355,29 @@ function renderFlowerOwnership() {
   }).join('');
 }
 
-function toggleOwn(mi, fi, checkbox) {
+function toggleOwn(mi, flowerID, checkbox) {
   const el = checkbox.closest('.flower-check');
   if (!ownership[mi]) ownership[mi] = new Set();
-  if (ownership[mi].has(fi)) {
-    ownership[mi].delete(fi);
+  if (ownership[mi].has(flowerID)) {
+    ownership[mi].delete(flowerID);
     el.classList.remove('owned');
   } else {
-    ownership[mi].add(fi);
+    ownership[mi].add(flowerID);
     el.classList.add('owned');
   }
-  const owned = ownership[mi];
-  document.getElementById('ownedCount').textContent = `已擁有 ${owned.size} / ${flowers.length} 種`;
+  const totalOwned = flowers.filter(f => ownership[mi].has(f.id)).length;
+  document.getElementById('ownedCount').textContent =
+    `已擁有 ${totalOwned} / ${flowers.length} 種` +
+    (document.getElementById('qualityFilter').value
+      ? `（顯示 ${flowers.filter(f => f.quality === document.getElementById('qualityFilter').value).length} 種${document.getElementById('qualityFilter').value}品）`
+      : '');
 }
 
 // ── 儲存 / 還原 ──
 function saveData() {
   const serialOwnership = {};
   Object.keys(ownership).forEach(k => { serialOwnership[k] = [...ownership[k]]; });
-  // flowers 不存入 localStorage，永遠從 flowers.js 讀
-  localStorage.setItem('memberEditorData', JSON.stringify({ members, ownership: serialOwnership }));
+  localStorage.setItem('memberEditorData', JSON.stringify({ version: 2, members, ownership: serialOwnership }));
   alert('✅ 已儲存進度！');
 }
 
@@ -383,10 +397,9 @@ function loadSaved() {
 
 // ── 產生程式碼 ──
 function generateCode() {
-  // 把 ownership 寫回 flowers.owners
-  const updatedFlowers = flowers.map((f, fi) => {
+  const updatedFlowers = flowers.map(f => {
     const owners = members
-      .filter((m, mi) => ownership[mi] && ownership[mi].has(fi))
+      .filter((m, mi) => ownership[mi] && ownership[mi].has(f.id))
       .map(m => m.nickname || m.gameId);
     return { ...f, owners };
   });
