@@ -1,4 +1,4 @@
-﻿window.FLOWERS = [
+window.FLOWERS = [
   {
     "id": 1,
     "name": "仙魅靈狐",
@@ -7,7 +7,11 @@
     "score": 28,
     "obtain": "花靈商店",
     "owners": [
-      "蜜桃香檳"
+      "蜜桃香檳",
+      "夜玥漾",
+      "物理看花",
+      "叫我第一名",
+      "第二名"
     ]
   },
   {
@@ -19,10 +23,20 @@
     "obtain": "活動",
     "owners": [
       "儀兒",
+      "Hoi",
       "蜜桃香檳",
+      "夜玥漾",
+      "茉莉金萱",
+      "泠玥o",
+      "繁星閃閃",
+      "物理看花",
+      "叫我第一名",
+      "第二名",
+      "丁丁",
       "唯伊",
       "桃子",
-      "懶懶熊"
+      "懶懶熊",
+      "千年一遇女神"
     ]
   },
   {
@@ -33,7 +47,11 @@
     "score": 28,
     "obtain": "心聯盟",
     "owners": [
-      "儀兒"
+      "儀兒",
+      "夜玥漾",
+      "茉莉金萱",
+      "若糜",
+      "物理看花"
     ]
   },
   {
@@ -45,7 +63,10 @@
     "obtain": "花靈商店",
     "owners": [
       "儀兒",
-      "蜜桃香檳"
+      "Hoi",
+      "蜜桃香檳",
+      "夜玥漾",
+      "泠玥o"
     ]
   },
   {
@@ -57,6 +78,14 @@
     "obtain": "活動",
     "owners": [
       "儀兒",
+      "Hoi",
+      "夜玥漾",
+      "泠玥o",
+      "繁星閃閃",
+      "若糜",
+      "物理看花",
+      "叫我第一名",
+      "千年一遇女神",
       "寶妹"
     ]
   },
@@ -69,9 +98,21 @@
     "obtain": "星河映蕊",
     "owners": [
       "儀兒",
+      "Hoi",
       "蜜桃香檳",
+      "夜玥漾",
+      "茉莉金萱",
+      "泠玥o",
+      "繁星閃閃",
+      "若糜",
+      "物理看花",
+      "叫我第一名",
+      "汪汪",
       "葡萄啵啵",
-      "懶懶熊"
+      "丁丁",
+      "巧雲",
+      "懶懶熊",
+      "千年一遇女神"
     ]
   },
   {
@@ -81,7 +122,9 @@
     "quality": "仙",
     "score": 30,
     "obtain": "活動",
-    "owners": []
+    "owners": [
+      "若糜"
+    ]
   },
   {
     "id": 8,
@@ -92,7 +135,15 @@
     "obtain": "精靈花",
     "owners": [
       "儀兒",
-      "蜜桃香檳"
+      "Hoi",
+      "蜜桃香檳",
+      "夜玥漾",
+      "泠玥o",
+      "繁星閃閃",
+      "若糜",
+      "叫我第一名",
+      "21 離寶",
+      "千年一遇女神"
     ]
   },
   {
@@ -104,7 +155,16 @@
     "obtain": "精靈花",
     "owners": [
       "儀兒",
-      "蜜桃香檳"
+      "Hoi",
+      "蜜桃香檳",
+      "夜玥漾",
+      "泠玥o",
+      "繁星閃閃",
+      "若糜",
+      "物理看花",
+      "叫我第一名",
+      "21 離寶",
+      "丁丁"
     ]
   },
   {
@@ -115,7 +175,9 @@
     "score": 28,
     "obtain": "精靈花",
     "owners": [
-      "蜜桃香檳"
+      "蜜桃香檳",
+      "繁星閃閃",
+      "若糜"
     ]
   },
   {
@@ -127,8 +189,16 @@
     "obtain": "精靈花",
     "owners": [
       "儀兒",
+      "Hoi",
       "蜜桃香檳",
-      "葡萄啵啵"
+      "夜玥漾",
+      "泠玥o",
+      "若糜",
+      "物理看花",
+      "叫我第一名",
+      "葡萄啵啵",
+      "第二名",
+      "千年一遇女神"
     ]
   },
   {
@@ -141,8 +211,15 @@
     "owners": [
       "儀兒",
       "蜜桃香檳",
+      "夜玥漾",
+      "茉莉金萱",
+      "泠玥o",
+      "物理看花",
+      "叫我第一名",
       "葡萄啵啵",
-      "唯伊"
+      "第二名",
+      "唯伊",
+      "千年一遇女神"
     ]
   },
   {
@@ -154,7 +231,15 @@
     "obtain": "卡冊",
     "owners": [
       "儀兒",
+      "Hoi",
       "蜜桃香檳",
+      "夜玥漾",
+      "茉莉金萱",
+      "若糜",
+      "物理看花",
+      "叫我第一名",
+      "丁丁",
+      "千年一遇女神",
       "寶妹"
     ]
   },
@@ -167,7 +252,12 @@
     "obtain": "活動",
     "owners": [
       "儀兒",
-      "蜜桃香檳"
+      "Hoi",
+      "蜜桃香檳",
+      "夜玥漾",
+      "若糜",
+      "物理看花",
+      "叫我第一名"
     ]
   },
   {
@@ -178,7 +268,11 @@
     "score": 28,
     "obtain": "花靈商店",
     "owners": [
-      "蜜桃香檳"
+      "Hoi",
+      "蜜桃香檳",
+      "物理看花",
+      "叫我第一名",
+      "21 離寶"
     ]
   },
   {
@@ -190,11 +284,22 @@
     "obtain": "活動",
     "owners": [
       "儀兒",
+      "Hoi",
       "蜜桃香檳",
+      "夜玥漾",
+      "茉莉金萱",
+      "泠玥o",
+      "若糜",
+      "物理看花",
+      "叫我第一名",
+      "汪汪",
+      "21 離寶",
       "葡萄啵啵",
+      "第二名",
       "唯伊",
       "桃子",
-      "懶懶熊"
+      "懶懶熊",
+      "千年一遇女神"
     ]
   },
   {
@@ -206,7 +311,16 @@
     "obtain": "花靈商店",
     "owners": [
       "儀兒",
-      "蜜桃香檳"
+      "Hoi",
+      "蜜桃香檳",
+      "夜玥漾",
+      "泠玥o",
+      "繁星閃閃",
+      "若糜",
+      "物理看花",
+      "叫我第一名",
+      "21 離寶",
+      "丁丁"
     ]
   },
   {
@@ -219,6 +333,12 @@
     "owners": [
       "儀兒",
       "蜜桃香檳",
+      "夜玥漾",
+      "若糜",
+      "物理看花",
+      "叫我第一名",
+      "丁丁",
+      "千年一遇女神",
       "寶妹"
     ]
   },
@@ -230,7 +350,10 @@
     "score": 28,
     "obtain": "活動",
     "owners": [
-      "蜜桃香檳"
+      "Hoi",
+      "蜜桃香檳",
+      "物理看花",
+      "叫我第一名"
     ]
   },
   {
@@ -242,7 +365,15 @@
     "obtain": "活動",
     "owners": [
       "蜜桃香檳",
-      "桃子"
+      "夜玥漾",
+      "茉莉金萱",
+      "泠玥o",
+      "叫我第一名",
+      "汪汪",
+      "第二名",
+      "桃子",
+      "巧雲",
+      "千年一遇女神"
     ]
   },
   {
@@ -256,7 +387,14 @@
       "小矓兒",
       "儀兒",
       "蜜桃香檳",
+      "夜玥漾",
+      "茉莉金萱",
+      "繁星閃閃",
+      "若糜",
+      "物理看花",
+      "叫我第一名",
       "葡萄啵啵",
+      "千年一遇女神",
       "寶妹"
     ]
   },
@@ -268,7 +406,9 @@
     "score": 28,
     "obtain": "精靈花",
     "owners": [
-      "蜜桃香檳"
+      "Hoi",
+      "蜜桃香檳",
+      "叫我第一名"
     ]
   },
   {
@@ -280,7 +420,13 @@
     "obtain": "精靈花",
     "owners": [
       "儀兒",
-      "蜜桃香檳"
+      "Hoi",
+      "蜜桃香檳",
+      "夜玥漾",
+      "泠玥o",
+      "物理看花",
+      "叫我第一名",
+      "千年一遇女神"
     ]
   },
   {
@@ -289,10 +435,15 @@
     "img": "FlowerImage/仙/金麟飛渡.jpg",
     "quality": "仙",
     "score": 30,
-    "obtain": "活動",
+    "obtain": "累積儲值",
     "owners": [
       "儀兒",
-      "蜜桃香檳"
+      "Hoi",
+      "蜜桃香檳",
+      "夜玥漾",
+      "若糜",
+      "物理看花",
+      "叫我第一名"
     ]
   },
   {
@@ -304,8 +455,592 @@
     "obtain": "精靈花",
     "owners": [
       "儀兒",
+      "Hoi",
       "蜜桃香檳",
+      "夜玥漾",
+      "泠玥o",
+      "繁星閃閃",
+      "若糜",
+      "物理看花",
+      "叫我第一名",
+      "21 離寶",
       "葡萄啵啵"
     ]
+  },
+  {
+    "id": 26,
+    "name": "仙女散花",
+    "quality": "華",
+    "img": "FlowerImage/華/仙女散花.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 27,
+    "name": "元氣破蛋",
+    "quality": "華",
+    "img": "FlowerImage/華/元氣破蛋.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 28,
+    "name": "冰藍蝶舞玫瑰",
+    "quality": "華",
+    "img": "FlowerImage/華/冰藍蝶舞玫瑰.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 29,
+    "name": "夜藍香息",
+    "quality": "華",
+    "img": "FlowerImage/華/夜藍香息.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 30,
+    "name": "夢蝶花章",
+    "quality": "華",
+    "img": "FlowerImage/華/夢蝶花章.jpg",
+    "score": 25,
+    "obtain": "週花",
+    "owners": []
+  },
+  {
+    "id": 31,
+    "name": "姑蘇雨蒙",
+    "quality": "華",
+    "img": "FlowerImage/華/姑蘇雨蒙.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 32,
+    "name": "寶珠玉蘭",
+    "quality": "華",
+    "img": "FlowerImage/華/寶珠玉蘭.jpg",
+    "score": 25,
+    "obtain": "星河映蕊",
+    "owners": []
+  },
+  {
+    "id": 33,
+    "name": "尋蜜之心",
+    "quality": "華",
+    "img": "FlowerImage/華/尋蜜之心.jpg",
+    "score": 25,
+    "obtain": "心聯盟",
+    "owners": []
+  },
+  {
+    "id": 34,
+    "name": "幽藍逐影",
+    "quality": "華",
+    "img": "FlowerImage/華/幽藍逐影.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 35,
+    "name": "恬夢聖鈴",
+    "quality": "華",
+    "img": "FlowerImage/華/恬夢聖鈴.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 36,
+    "name": "搗蛋幽幽",
+    "quality": "華",
+    "img": "FlowerImage/華/搗蛋幽幽.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 37,
+    "name": "星槎仙舟",
+    "quality": "華",
+    "img": "FlowerImage/華/星槎仙舟.jpg",
+    "score": 25,
+    "obtain": "累積儲值",
+    "owners": []
+  },
+  {
+    "id": 38,
+    "name": "星澤幽曇",
+    "quality": "華",
+    "img": "FlowerImage/華/星澤幽曇.jpg",
+    "score": 25,
+    "obtain": "花靈商店",
+    "owners": []
+  },
+  {
+    "id": 39,
+    "name": "映粉雲光月季",
+    "quality": "華",
+    "img": "FlowerImage/華/映粉雲光月季.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 40,
+    "name": "曜緋帝王花",
+    "quality": "華",
+    "img": "FlowerImage/華/曜緋帝王花.jpg",
+    "score": 25,
+    "obtain": "週花",
+    "owners": []
+  },
+  {
+    "id": 41,
+    "name": "杏色春衫",
+    "quality": "華",
+    "img": "FlowerImage/華/杏色春衫.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 42,
+    "name": "杮杮如意",
+    "quality": "華",
+    "img": "FlowerImage/華/杮杮如意.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 43,
+    "name": "桃影浮瀾",
+    "quality": "華",
+    "img": "FlowerImage/華/桃影浮瀾.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 44,
+    "name": "橙光拂曉月季",
+    "quality": "華",
+    "img": "FlowerImage/華/橙光拂曉月季.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 45,
+    "name": "歡鬧南瓜",
+    "quality": "華",
+    "img": "FlowerImage/華/歡鬧南瓜.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 46,
+    "name": "沐光映黃月季",
+    "quality": "華",
+    "img": "FlowerImage/華/沐光映黃月季.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 47,
+    "name": "漱玉雪蓮",
+    "quality": "華",
+    "img": "FlowerImage/華/漱玉雪蓮.jpg",
+    "score": 25,
+    "obtain": "花靈商店",
+    "owners": []
+  },
+  {
+    "id": 48,
+    "name": "火耀金丹",
+    "quality": "華",
+    "img": "FlowerImage/華/火耀金丹.jpg",
+    "score": 25,
+    "obtain": "卡冊",
+    "owners": []
+  },
+  {
+    "id": 49,
+    "name": "玉兔攬輝",
+    "quality": "華",
+    "img": "FlowerImage/華/玉兔攬輝.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 50,
+    "name": "玉玲瓏臘梅",
+    "quality": "華",
+    "img": "FlowerImage/華/玉玲瓏臘梅.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 51,
+    "name": "玉蘭棲香",
+    "quality": "華",
+    "img": "FlowerImage/華/玉蘭棲香.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 52,
+    "name": "玫瑰小熊",
+    "quality": "華",
+    "img": "FlowerImage/華/玫瑰小熊.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 53,
+    "name": "珠匣橘芙蓉",
+    "quality": "華",
+    "img": "FlowerImage/華/珠匣橘芙蓉.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 54,
+    "name": "珠匣粉芙蓉",
+    "quality": "華",
+    "img": "FlowerImage/華/珠匣粉芙蓉.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 55,
+    "name": "珠匣紫芙蓉",
+    "quality": "華",
+    "img": "FlowerImage/華/珠匣紫芙蓉.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 56,
+    "name": "珠寶之心",
+    "quality": "華",
+    "img": "FlowerImage/華/珠寶之心.jpg",
+    "score": 25,
+    "obtain": "心聯盟",
+    "owners": []
+  },
+  {
+    "id": 57,
+    "name": "琉藍帝王花",
+    "quality": "華",
+    "img": "FlowerImage/華/琉藍帝王花.jpg",
+    "score": 25,
+    "obtain": "週花",
+    "owners": []
+  },
+  {
+    "id": 58,
+    "name": "瑤光牡丹",
+    "quality": "華",
+    "img": "FlowerImage/華/瑤光牡丹.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 59,
+    "name": "瑤枝桂影",
+    "quality": "華",
+    "img": "FlowerImage/華/瑤枝桂影.jpg",
+    "score": 25,
+    "obtain": "花靈商店",
+    "owners": []
+  },
+  {
+    "id": 60,
+    "name": "瓊臺玉露",
+    "quality": "華",
+    "img": "FlowerImage/華/瓊臺玉露.jpg",
+    "score": 25,
+    "obtain": "卡冊",
+    "owners": []
+  },
+  {
+    "id": 61,
+    "name": "甜絨羊羊",
+    "quality": "華",
+    "img": "FlowerImage/華/甜絨羊羊.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 62,
+    "name": "白靈逐浪",
+    "quality": "華",
+    "img": "FlowerImage/華/白靈逐浪.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 63,
+    "name": "竹映金輝",
+    "quality": "華",
+    "img": "FlowerImage/華/竹映金輝.jpg",
+    "score": 25,
+    "obtain": "花靈商店",
+    "owners": []
+  },
+  {
+    "id": 64,
+    "name": "粉櫻蝶舞玫瑰",
+    "quality": "華",
+    "img": "FlowerImage/華/粉櫻蝶舞玫瑰.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 65,
+    "name": "紅香妃臘梅",
+    "quality": "華",
+    "img": "FlowerImage/華/紅香妃臘梅.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 66,
+    "name": "紙鳶探春",
+    "quality": "華",
+    "img": "FlowerImage/華/紙鳶探春.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 67,
+    "name": "紫曜牡丹",
+    "quality": "華",
+    "img": "FlowerImage/華/紫曜牡丹.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 68,
+    "name": "紫靈福祿",
+    "quality": "華",
+    "img": "FlowerImage/華/紫靈福祿.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 69,
+    "name": "花籠星語",
+    "quality": "華",
+    "img": "FlowerImage/華/花籠星語.jpg",
+    "score": 25,
+    "obtain": "週花",
+    "owners": []
+  },
+  {
+    "id": 70,
+    "name": "花籠流芳",
+    "quality": "華",
+    "img": "FlowerImage/華/花籠流芳.jpg",
+    "score": 25,
+    "obtain": "週花",
+    "owners": []
+  },
+  {
+    "id": 71,
+    "name": "花籠瓊光",
+    "quality": "華",
+    "img": "FlowerImage/華/花籠瓊光.jpg",
+    "score": 25,
+    "obtain": "週花",
+    "owners": []
+  },
+  {
+    "id": 72,
+    "name": "花露甜粥",
+    "quality": "華",
+    "img": "FlowerImage/華/花露甜粥.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 73,
+    "name": "芳蕊瓊漿",
+    "quality": "華",
+    "img": "FlowerImage/華/芳蕊瓊漿.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 74,
+    "name": "葡萄紫牡丹菊",
+    "quality": "華",
+    "img": "FlowerImage/華/葡萄紫牡丹菊.jpg",
+    "score": 25,
+    "obtain": "週花",
+    "owners": []
+  },
+  {
+    "id": 75,
+    "name": "虹霞仙芝",
+    "quality": "華",
+    "img": "FlowerImage/華/虹霞仙芝.jpg",
+    "score": 25,
+    "obtain": "花靈商店",
+    "owners": []
+  },
+  {
+    "id": 76,
+    "name": "蝶影梅書",
+    "quality": "華",
+    "img": "FlowerImage/華/蝶影梅書.jpg",
+    "score": 25,
+    "obtain": "週花",
+    "owners": []
+  },
+  {
+    "id": 77,
+    "name": "金纏腰",
+    "quality": "華",
+    "img": "FlowerImage/華/金纏腰.jpg",
+    "score": 25,
+    "obtain": "卡冊",
+    "owners": []
+  },
+  {
+    "id": 78,
+    "name": "霓光映樹",
+    "quality": "華",
+    "img": "FlowerImage/華/霓光映樹.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 79,
+    "name": "霞暉帝王花",
+    "quality": "華",
+    "img": "FlowerImage/華/霞暉帝王花.jpg",
+    "score": 25,
+    "obtain": "週花",
+    "owners": []
+  },
+  {
+    "id": 80,
+    "name": "霽瀾牡丹",
+    "quality": "華",
+    "img": "FlowerImage/華/霽瀾牡丹.jpg",
+    "score": 25,
+    "obtain": "花圃",
+    "owners": []
+  },
+  {
+    "id": 81,
+    "name": "靈松照夜",
+    "quality": "華",
+    "img": "FlowerImage/華/靈松照夜.jpg",
+    "score": 25,
+    "obtain": "花靈商店",
+    "owners": []
+  },
+  {
+    "id": 82,
+    "name": "靈瑞仙桃",
+    "quality": "華",
+    "img": "FlowerImage/華/靈瑞仙桃.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 83,
+    "name": "馥香花餅",
+    "quality": "華",
+    "img": "FlowerImage/華/馥香花餅.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 84,
+    "name": "馬上有福",
+    "quality": "華",
+    "img": "FlowerImage/華/馬上有福.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 85,
+    "name": "馬上有財",
+    "quality": "華",
+    "img": "FlowerImage/華/馬上有財.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 86,
+    "name": "馬上杮橙",
+    "quality": "華",
+    "img": "FlowerImage/華/馬上杮橙.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 87,
+    "name": "魚燈映歲",
+    "quality": "華",
+    "img": "FlowerImage/華/魚燈映歲.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 88,
+    "name": "鳶花芳集",
+    "quality": "華",
+    "img": "FlowerImage/華/鳶花芳集.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
+  },
+  {
+    "id": 89,
+    "name": "鶴寄星河",
+    "quality": "華",
+    "img": "FlowerImage/華/鶴寄星河.jpg",
+    "score": 25,
+    "obtain": "活動",
+    "owners": []
   }
 ];

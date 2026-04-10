@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>成員編輯器</title>
-  <script src="flowers.js"></script>
-  <script src="members.js"></script>
+  <script src="flowers.js?v=3"></script>
+  <script src="members.js?v=3"></script>
   <style>
     :root {
       --pink:#e91e8c; --pink-light:#fce4ec; --pink-mid:#f48fb1;
@@ -180,8 +180,8 @@
 <!-- modal -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
-    <h2>📋 複製並覆蓋對應檔案</h2>
-    <p>分別複製以下兩段內容，覆蓋 <code>members.js</code> 和 <code>flowers.js</code>。</p>
+    <h2>📋 複製並提供資料</h2>
+    <p>分別複製以下兩段內容，將資料提供給蜜桃香檳做更新。</p>
     <div class="modal-files">
       <div class="modal-file-block">
         <label>members.js</label>
@@ -331,11 +331,12 @@ function renderFlowerOwnership() {
 
   const filtered = flowers.filter(f => !qFilter || f.quality === qFilter);
 
-  // 已擁有數永遠以全部花計算
-  const totalOwned = flowers.filter(f => owned.has(f.id)).length;
+  // 已擁有數跟著篩選品質計算
+  const displayOwned = filtered.filter(f => owned.has(f.id)).length;
   document.getElementById('ownedCount').textContent =
-    `已擁有 ${totalOwned} / ${flowers.length} 種` +
-    (qFilter ? `（顯示 ${filtered.length} 種${qFilter}品）` : '');
+    qFilter
+      ? `已擁有 ${displayOwned} / ${filtered.length} 種${qFilter}品`
+      : `已擁有 ${displayOwned} / ${filtered.length} 種`;
 
   const grid = document.getElementById('flowerOwnerGrid');
   grid.innerHTML = filtered.map(f => {
@@ -366,12 +367,13 @@ function toggleOwn(mi, flowerID, checkbox) {
     ownership[mi].add(flowerID);
     el.classList.add('owned');
   }
-  const totalOwned = flowers.filter(f => ownership[mi].has(f.id)).length;
+  const qFilter = document.getElementById('qualityFilter').value;
+  const filtered = flowers.filter(f => !qFilter || f.quality === qFilter);
+  const displayOwned = filtered.filter(f => ownership[mi].has(f.id)).length;
   document.getElementById('ownedCount').textContent =
-    `已擁有 ${totalOwned} / ${flowers.length} 種` +
-    (document.getElementById('qualityFilter').value
-      ? `（顯示 ${flowers.filter(f => f.quality === document.getElementById('qualityFilter').value).length} 種${document.getElementById('qualityFilter').value}品）`
-      : '');
+    qFilter
+      ? `已擁有 ${displayOwned} / ${filtered.length} 種${qFilter}品`
+      : `已擁有 ${displayOwned} / ${filtered.length} 種`;
 }
 
 // ── 儲存 / 還原 ──
@@ -409,11 +411,22 @@ function loadSaved() {
 
 // ── 產生程式碼 ──
 function generateCode() {
+  // 只更新有在 ownership 裡管理的成員，其餘保留原始 flowers.js 的 owners
+  const managedNicknames = new Set(members.map(m => m.nickname || m.gameId));
+
   const updatedFlowers = flowers.map(f => {
-    const owners = members
+    // 從 ownership 算出這頁管理的成員中誰擁有這朵花
+    const ownedByManaged = members
       .filter((m, mi) => ownership[mi] && ownership[mi].has(f.id))
       .map(m => m.nickname || m.gameId);
-    return { ...f, owners };
+
+    // 保留原始 owners 裡不在這頁管理範圍內的人
+    const originalOwners = (window.FLOWERS.find(wf => wf.id === f.id)?.owners) || [];
+    const keptOwners = originalOwners.filter(name => !managedNicknames.has(name));
+
+    // 合併：保留的 + 這頁勾選的（去重）
+    const merged = [...new Set([...keptOwners, ...ownedByManaged])];
+    return { ...f, owners: merged };
   });
 
   document.getElementById('outMembers').value =
