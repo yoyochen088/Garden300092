@@ -100,6 +100,7 @@
     textarea { flex: 1; min-height: 300px; font-family: monospace; font-size: 0.82rem; border: 1.5px solid var(--border); border-radius: 8px; padding: 10px; resize: vertical; outline: none; color: #3d1a2e; }
     .modal-btns { display: flex; gap: 8px; justify-content: flex-end; }
   </style>
+  <script src="flowers.js"></script>
 </head>
 <body>
 
@@ -140,12 +141,7 @@
 </div>
 
 <script>
-const FLOWER_LIST = [
-  "仙魅靈狐","夜夢花庭","夢幻之心","天上宮闕","星夜奇遇","星河映蕊","有龍則靈",
-  "杏月·花影雅憩","柳月·溪亭燕語","桂月·秋千稚語","梅月·疏影聽弦","歡雪頌冬",
-  "歡雲妙舞","焰火迎春","碧羽青鸞","福運招財","紫霄雲庭","繁花滿築","花宴流芳",
-  "花漾春山","芳華尋蝶","菊月·花間飛鳶","葭月·棲舟泛漪","金麟飛渡","陽月·芙香盈袖"
-];
+const FLOWER_LIST = (window.FLOWERS || []).map(f => f.name);
 
 const QUALITY_LIST = ["仙","華","珍","普","凡"];
 const SCORE_LIST   = [14, 21, 23, 25, 28, 30];
@@ -158,11 +154,7 @@ function initData() {
   if (saved) {
     data = JSON.parse(saved);
   } else {
-    data = FLOWER_LIST.map((name, i) => ({
-      id: i + 1, name,
-      img: `FlowerImage/仙/${name}.jpg`,
-      quality: "仙", score: 30, obtain: "活動", owners: []
-    }));
+    data = JSON.parse(JSON.stringify(window.FLOWERS || []));
   }
 }
 
