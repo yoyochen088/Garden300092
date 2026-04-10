@@ -1,4 +1,4 @@
-window.MEMBERS = [
+﻿window.MEMBERS = [
   {
     "id": 1,
     "gameId": "gt1ezkqjvnk",
@@ -32,7 +32,7 @@ window.MEMBERS = [
   {
     "id": 6,
     "gameId": "gt1xv4nusqz",
-    "nickname": "茉莉金萱☆ ”",
+    "nickname": "茉莉金萱☆",
     "note": "理事"
   },
   {

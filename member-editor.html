@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
@@ -232,12 +232,19 @@ function initData() {
 
 function initFromFlowers() {
   members = JSON.parse(JSON.stringify(window.MEMBERS || []));
+  // 建立 gameId → memberIndex 和 nickname → memberIndex 的對應
+  const gameIdToIdx = {};
+  const nickToIdx = {};
   members.forEach((m, mi) => {
+    gameIdToIdx[m.gameId] = mi;
+    nickToIdx[m.nickname] = mi;
     ownership[mi] = new Set();
-    flowers.forEach(f => {
-      if (f.owners && f.owners.includes(m.nickname)) {
-        ownership[mi].add(f.id);
-      }
+  });
+  // owners 可能是 gameId 或舊暱稱，兩種都支援
+  flowers.forEach(f => {
+    (f.owners || []).forEach(o => {
+      const mi = gameIdToIdx[o] ?? nickToIdx[o];
+      if (mi !== undefined) ownership[mi].add(f.id);
     });
   });
 }
@@ -261,31 +268,50 @@ function renderMemberList() {
     el.innerHTML = '<p style="color:#9e6b7e;font-size:0.9rem;margin-bottom:12px;">尚無成員，請點下方新增。</p>';
     return;
   }
-  el.innerHTML = members.map((m, i) => `
-    <div class="card">
+  el.innerHTML = members.map((m, i) => {
+    const isLeft = !!m.left;
+    const cardStyle = isLeft ? 'opacity:0.5;background:#f5f5f5;' : '';
+    const inputStyle = isLeft ? 'background:#eee;color:#999;' : '';
+    return `
+    <div class="card" style="${cardStyle}">
       <div class="member-row">
         <div>
           <div class="label">遊戲 ID</div>
-          <input value="${m.gameId}" oninput="updateMember(${i},'gameId',this.value)" placeholder="遊戲 ID" />
+          <input value="${m.gameId}" oninput="updateMember(${i},'gameId',this.value)" placeholder="遊戲 ID" ${isLeft?'disabled':''} style="${inputStyle}" />
         </div>
         <div>
-          <div class="label">暱稱</div>
-          <input value="${m.nickname}" oninput="updateMember(${i},'nickname',this.value)" placeholder="暱稱" />
+          <div class="label">暱稱 ${isLeft ? '<span style="color:#e91e8c;font-size:0.7rem;">（已離開）</span>' : ''}</div>
+          <input value="${m.nickname}" oninput="updateMember(${i},'nickname',this.value)" placeholder="暱稱" ${isLeft?'disabled':''} style="${inputStyle}" />
         </div>
         <div>
           <div class="label">職位</div>
-          <select onchange="updateMember(${i},'note',this.value)" style="padding:7px 10px;border:1.5px solid var(--pink-mid);border-radius:7px;font-size:0.9rem;background:var(--bg);color:#3d1a2e;outline:none;width:100%;">
+          <select onchange="updateMember(${i},'note',this.value)" ${isLeft?'disabled':''} style="padding:7px 10px;border:1.5px solid var(--pink-mid);border-radius:7px;font-size:0.9rem;background:${isLeft?'#eee':'var(--bg)'};color:${isLeft?'#999':'#3d1a2e'};outline:none;width:100%;">
             ${["會長","副會長","理事","菁英","成員"].map(r =>
               `<option value="${r}" ${m.note===r?'selected':''}>${r}</option>`
             ).join('')}
           </select>
         </div>
-        <div class="del-col">
-          <button class="btn-del" onclick="deleteMember(${i})">刪除</button>
+        <div class="del-col" style="display:flex;gap:6px;">
+          ${isLeft
+            ? `<button class="btn-del" style="background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;" onclick="restoreMember(${i})">還原</button>`
+            : `<button class="btn-del" style="background:#fff3e0;color:#e65100;border-color:#ffcc80;" onclick="markLeft(${i})">離開</button>
+               <button class="btn-del" onclick="deleteMember(${i})">刪除</button>`
+          }
         </div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
+}
+
+function markLeft(i) {
+  if (!confirm(`確定將「${members[i].nickname || members[i].gameId}」標記為已離開？\n此成員的花單資料將不再顯示，ID 永久保留。`)) return;
+  members[i].left = true;
+  renderMemberList();
+}
+
+function restoreMember(i) {
+  members[i].left = false;
+  renderMemberList();
 }
 
 function updateMember(i, field, value) {
@@ -293,17 +319,32 @@ function updateMember(i, field, value) {
 }
 
 function addMember() {
-  const newId = members.length ? Math.max(...members.map(m => m.id)) + 1 : 1;
+  // ID 永遠取所有已存在 + 曾被刪除的最大值 +1，絕不重用
+  const usedIds = [
+    ...members.map(m => m.id),
+    ...(window._deletedIds ? [...window._deletedIds] : [])
+  ];
+  const newId = usedIds.length ? Math.max(...usedIds) + 1 : 1;
   const newIdx = members.length;
-  members.push({ id: newId, gameId: '', nickname: '', note: '成員' });
+  members.push({ id: newId, gameId: '', nickname: '', note: '成員', left: false });
   ownership[newIdx] = new Set();
   renderMemberList();
 }
 
 function deleteMember(i) {
-  if (!confirm(`確定刪除「${members[i].nickname || members[i].gameId || '此成員'}」？`)) return;
+  const m = members[i];
+  // 檢查這個成員是否有花單資料
+  const hasFlowers = ownership[i] && ownership[i].size > 0;
+  if (hasFlowers) {
+    alert(`「${m.nickname || m.gameId}」有花單資料，無法直接刪除。\n請改用「離開」按鈕標記為已離開。`);
+    return;
+  }
+  if (!confirm(`確定刪除「${m.nickname || m.gameId || '此成員'}」？\n此操作無法復原。`)) return;
+  // 記錄被刪除的 id，避免重用
+  if (!window._deletedIds) window._deletedIds = new Set();
+  window._deletedIds.add(m.id);
+
   members.splice(i, 1);
-  // 重建 ownership index
   const newOwnership = {};
   members.forEach((_, ni) => {
     const oldIdx = ni < i ? ni : ni + 1;
@@ -317,10 +358,12 @@ function deleteMember(i) {
 function refreshMemberPicker() {
   const sel = document.getElementById('memberPicker');
   const prev = sel.value;
-  sel.innerHTML = members.map((m, i) =>
-    `<option value="${i}">${m.nickname || m.gameId || `成員${i+1}`}</option>`
-  ).join('');
-  if (prev && members[prev]) sel.value = prev;
+  sel.innerHTML = members
+    .map((m, i) => ({ m, i }))
+    .filter(({ m }) => !m.left)
+    .map(({ m, i }) => `<option value="${i}">${m.nickname || m.gameId || `成員${i+1}`}</option>`)
+    .join('');
+  if (prev && members[prev] && !members[prev].left) sel.value = prev;
 }
 
 function renderFlowerOwnership() {
@@ -411,21 +454,21 @@ function loadSaved() {
 
 // ── 產生程式碼 ──
 function generateCode() {
-  // 只更新有在 ownership 裡管理的成員，其餘保留原始 flowers.js 的 owners
-  const managedNicknames = new Set(members.map(m => m.nickname || m.gameId));
+  const activeMembers = members.filter(m => !m.left);
+  const managedGameIds = new Set(members.map(m => m.gameId)); // 所有人（含離開）的 gameId
 
   const updatedFlowers = flowers.map(f => {
-    // 從 ownership 算出這頁管理的成員中誰擁有這朵花
-    const ownedByManaged = members
-      .filter((m, mi) => ownership[mi] && ownership[mi].has(f.id))
-      .map(m => m.nickname || m.gameId);
+    // 只有在職成員勾選的才加入
+    const ownedByActive = members
+      .filter((m, mi) => !m.left && ownership[mi] && ownership[mi].has(f.id))
+      .map(m => m.gameId);
 
-    // 保留原始 owners 裡不在這頁管理範圍內的人
+    // 原始 owners 裡不屬於任何已知成員（含離開）的保留
+    // 屬於已知成員的：在職且勾選 → 保留；離開或未勾選 → 移除
     const originalOwners = (window.FLOWERS.find(wf => wf.id === f.id)?.owners) || [];
-    const keptOwners = originalOwners.filter(name => !managedNicknames.has(name));
+    const keptOwners = originalOwners.filter(o => !managedGameIds.has(o));
 
-    // 合併：保留的 + 這頁勾選的（去重）
-    const merged = [...new Set([...keptOwners, ...ownedByManaged])];
+    const merged = [...new Set([...keptOwners, ...ownedByActive])];
     return { ...f, owners: merged };
   });
 

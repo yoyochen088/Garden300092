@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="♡十里桃花♡ 花卉圖鑑" />
+  <meta property="og:description" content="十里桃花花卉圖鑑，查詢花種競賽分、取得方式與擁有成員。" />
+  <meta property="og:type" content="website" />
   <title>♡十里桃花♡ 花卉圖鑑</title>
   <style>
     :root {
@@ -520,17 +523,29 @@ function showPage(pageId, link) {
 // ════════════════════════════════════════════
 //  花卉圖鑑
 // ════════════════════════════════════════════
+// 建立 gameId → nickname 對應表（支援 owners 存 gameId 的新格式）
+function buildGameIdMap() {
+  const map = {};
+  (window.MEMBERS || []).forEach(m => { map[m.gameId] = m.nickname || m.gameId; });
+  return map;
+}
+
 function applyFilters() {
+  const gameIdMap = buildGameIdMap();
   const q       = document.getElementById('searchInput').value.trim().toLowerCase();
   const score   = document.getElementById('filterScore').value;
   const obtain  = document.getElementById('filterObtain').value;
   const quality = document.getElementById('filterQuality').value;
   const sort    = document.getElementById('sortBy').value;
 
+  // owner 顯示名稱（gameId 轉 nickname，或直接用原值）
+  const ownerDisplay = o => gameIdMap[o] || o;
+
   let list = (window.FLOWERS || []).filter(f => {
+    const ownerNames = f.owners.map(ownerDisplay);
     const matchQ = !q ||
       f.name.toLowerCase().includes(q) ||
-      f.owners.some(o => o.toLowerCase().includes(q));
+      ownerNames.some(o => o.toLowerCase().includes(q));
     const matchScore   = !score   || String(f.score) === score;
     const matchObtain  = !obtain  || f.obtain === obtain;
     const matchQuality = !quality || f.quality === quality;
@@ -542,7 +557,7 @@ function applyFilters() {
   if (sort === 'score_asc')  list.sort((a,b) => a.score - b.score);
   if (sort === 'score_desc') list.sort((a,b) => b.score - a.score);
 
-  renderFlowers(list);
+  renderFlowers(list, ownerDisplay);
 }
 
 function resetFilters() {
@@ -554,7 +569,8 @@ function resetFilters() {
   applyFilters();
 }
 
-function renderFlowers(list) {
+function renderFlowers(list, ownerDisplay) {
+  ownerDisplay = ownerDisplay || (o => o);
   const grid = document.getElementById('flowerGrid');
   const count = document.getElementById('resultCount');
   count.innerHTML = `共找到 <span>${list.length}</span> 種花`;
@@ -565,8 +581,9 @@ function renderFlowers(list) {
   }
 
   grid.innerHTML = list.map(f => {
-    const ownerTags = f.owners.length
-      ? f.owners.map(o => `<span class="owner-tag">${o}</span>`).join('')
+    const ownerNames = f.owners.map(ownerDisplay);
+    const ownerTags = ownerNames.length
+      ? ownerNames.map(o => `<span class="owner-tag">${o}</span>`).join('')
       : '<span class="no-owner">尚無人擁有</span>';
 
     const thumb = f.img
@@ -579,7 +596,7 @@ function renderFlowers(list) {
         <div class="card-body">
           <div class="card-title">
             ${f.name}
-            <span class="owner-count">(${f.owners.length} 人擁有)</span>
+            <span class="owner-count">(${ownerNames.length} 人擁有)</span>
           </div>
           <div class="card-meta">
             <span class="badge badge-quality-${f.quality}">${f.quality}</span>
@@ -597,7 +614,9 @@ function renderFlowers(list) {
 // ════════════════════════════════════════════
 function renderIdTable() {
   const tbody = document.getElementById('idTableBody');
-  tbody.innerHTML = (window.MEMBERS || []).map((m, i) => `
+  tbody.innerHTML = (window.MEMBERS || [])
+    .filter(m => !m.left)
+    .map((m, i) => `
     <tr>
       <td>${i + 1}</td>
       <td>${m.nickname}</td>
