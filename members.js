@@ -1,4 +1,4 @@
-﻿window.MEMBERS = [
+window.MEMBERS = [
   {
     "id": 1,
     "gameId": "gt1ezkqjvnk",
