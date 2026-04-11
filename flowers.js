@@ -11,7 +11,12 @@ window.FLOWERS = [
       "夜玥漾",
       "物理看花",
       "叫我第一名",
-      "第二名"
+      "第二名",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt02ewvhv1u"
     ]
   },
   {
@@ -36,7 +41,22 @@ window.FLOWERS = [
       "唯伊",
       "桃子",
       "懶懶熊•ɞ•",
-      "千年一遇女神"
+      "千年一遇女神",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1xv4nusqz",
+      "gt1j7d2y02w",
+      "gt1d58owgxn",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt02ewvhv1u",
+      "gt01kztr3fw",
+      "gt01809c0mf",
+      "gt01lqv6tik",
+      "gt04a2zjbi9",
+      "gt118zh6lgs"
     ]
   },
   {
@@ -51,7 +71,12 @@ window.FLOWERS = [
       "夜玥漾",
       "茉莉金萱☆",
       "若糜",
-      "物理看花"
+      "物理看花",
+      "gt11a3d84if",
+      "gt14pin7s3e",
+      "gt1xv4nusqz",
+      "gt147r7o2qz",
+      "gt021j90c1b"
     ]
   },
   {
@@ -66,7 +91,12 @@ window.FLOWERS = [
       "Hoi",
       "蜜桃香檳",
       "夜玥漾",
-      "泠玥o"
+      "泠玥o",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1j7d2y02w"
     ]
   },
   {
@@ -86,7 +116,17 @@ window.FLOWERS = [
       "物理看花",
       "叫我第一名",
       "千年一遇女神",
-      "寶妹"
+      "寶妹",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt14pin7s3e",
+      "gt1j7d2y02w",
+      "gt1d58owgxn",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt118zh6lgs",
+      "gt018lane3t"
     ]
   },
   {
@@ -112,7 +152,23 @@ window.FLOWERS = [
       "丁丁",
       "巧雲",
       "懶懶熊•ɞ•",
-      "千年一遇女神"
+      "千年一遇女神",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1xv4nusqz",
+      "gt1j7d2y02w",
+      "gt1d58owgxn",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt03xsjhola",
+      "gt02ziuyilz",
+      "gt01kztr3fw",
+      "gt15qdqf6rx",
+      "gt04a2zjbi9",
+      "gt118zh6lgs"
     ]
   },
   {
@@ -123,7 +179,8 @@ window.FLOWERS = [
     "score": 30,
     "obtain": "活動",
     "owners": [
-      "若糜"
+      "若糜",
+      "gt147r7o2qz"
     ]
   },
   {
@@ -143,7 +200,17 @@ window.FLOWERS = [
       "若糜",
       "叫我第一名",
       "ʚ 離寶 ɞ",
-      "千年一遇女神"
+      "千年一遇女神",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1j7d2y02w",
+      "gt1d58owgxn",
+      "gt147r7o2qz",
+      "gt020lrdk1b",
+      "gt06f9a8bwx",
+      "gt118zh6lgs"
     ]
   },
   {
@@ -164,7 +231,18 @@ window.FLOWERS = [
       "物理看花",
       "叫我第一名",
       "ʚ 離寶 ɞ",
-      "丁丁"
+      "丁丁",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1j7d2y02w",
+      "gt1d58owgxn",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt06f9a8bwx",
+      "gt01kztr3fw"
     ]
   },
   {
@@ -177,7 +255,10 @@ window.FLOWERS = [
     "owners": [
       "蜜桃香檳",
       "繁星閃閃",
-      "若糜"
+      "若糜",
+      "gt021477vjj",
+      "gt1d58owgxn",
+      "gt147r7o2qz"
     ]
   },
   {
@@ -198,7 +279,18 @@ window.FLOWERS = [
       "叫我第一名",
       "葡萄啵啵🥄",
       "第二名",
-      "千年一遇女神"
+      "千年一遇女神",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1j7d2y02w",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt02ziuyilz",
+      "gt02ewvhv1u",
+      "gt118zh6lgs"
     ]
   },
   {
@@ -219,7 +311,18 @@ window.FLOWERS = [
       "葡萄啵啵🥄",
       "第二名",
       "唯伊",
-      "千年一遇女神"
+      "千年一遇女神",
+      "gt11a3d84if",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1xv4nusqz",
+      "gt1j7d2y02w",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt02ziuyilz",
+      "gt02ewvhv1u",
+      "gt01809c0mf",
+      "gt118zh6lgs"
     ]
   },
   {
@@ -240,7 +343,18 @@ window.FLOWERS = [
       "叫我第一名",
       "丁丁",
       "千年一遇女神",
-      "寶妹"
+      "寶妹",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1xv4nusqz",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt01kztr3fw",
+      "gt118zh6lgs",
+      "gt018lane3t"
     ]
   },
   {
@@ -257,7 +371,14 @@ window.FLOWERS = [
       "夜玥漾",
       "若糜",
       "物理看花",
-      "叫我第一名"
+      "叫我第一名",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b"
     ]
   },
   {
@@ -272,7 +393,12 @@ window.FLOWERS = [
       "蜜桃香檳",
       "物理看花",
       "叫我第一名",
-      "ʚ 離寶 ɞ"
+      "ʚ 離寶 ɞ",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt06f9a8bwx"
     ]
   },
   {
@@ -299,7 +425,24 @@ window.FLOWERS = [
       "唯伊",
       "桃子",
       "懶懶熊•ɞ•",
-      "千年一遇女神"
+      "千年一遇女神",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1xv4nusqz",
+      "gt1j7d2y02w",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt03xsjhola",
+      "gt06f9a8bwx",
+      "gt02ziuyilz",
+      "gt02ewvhv1u",
+      "gt01809c0mf",
+      "gt01lqv6tik",
+      "gt04a2zjbi9",
+      "gt118zh6lgs"
     ]
   },
   {
@@ -320,7 +463,18 @@ window.FLOWERS = [
       "物理看花",
       "叫我第一名",
       "ʚ 離寶 ɞ",
-      "丁丁"
+      "丁丁",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1j7d2y02w",
+      "gt1d58owgxn",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt06f9a8bwx",
+      "gt01kztr3fw"
     ]
   },
   {
@@ -339,7 +493,16 @@ window.FLOWERS = [
       "叫我第一名",
       "丁丁",
       "千年一遇女神",
-      "寶妹"
+      "寶妹",
+      "gt11a3d84if",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt01kztr3fw",
+      "gt118zh6lgs",
+      "gt018lane3t"
     ]
   },
   {
@@ -353,7 +516,11 @@ window.FLOWERS = [
       "Hoi",
       "蜜桃香檳",
       "物理看花",
-      "叫我第一名"
+      "叫我第一名",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt021j90c1b",
+      "gt020lrdk1b"
     ]
   },
   {
@@ -373,7 +540,17 @@ window.FLOWERS = [
       "第二名",
       "桃子",
       "巧雲",
-      "千年一遇女神"
+      "千年一遇女神",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1xv4nusqz",
+      "gt1j7d2y02w",
+      "gt020lrdk1b",
+      "gt03xsjhola",
+      "gt02ewvhv1u",
+      "gt01lqv6tik",
+      "gt15qdqf6rx",
+      "gt118zh6lgs"
     ]
   },
   {
@@ -395,7 +572,19 @@ window.FLOWERS = [
       "叫我第一名",
       "葡萄啵啵🥄",
       "千年一遇女神",
-      "寶妹"
+      "寶妹",
+      "gt1ezkqjvnk",
+      "gt11a3d84if",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1xv4nusqz",
+      "gt1d58owgxn",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt02ziuyilz",
+      "gt118zh6lgs",
+      "gt018lane3t"
     ]
   },
   {
@@ -408,7 +597,10 @@ window.FLOWERS = [
     "owners": [
       "Hoi",
       "蜜桃香檳",
-      "叫我第一名"
+      "叫我第一名",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt020lrdk1b"
     ]
   },
   {
@@ -426,7 +618,15 @@ window.FLOWERS = [
       "泠玥o",
       "物理看花",
       "叫我第一名",
-      "千年一遇女神"
+      "千年一遇女神",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1j7d2y02w",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt118zh6lgs"
     ]
   },
   {
@@ -443,7 +643,14 @@ window.FLOWERS = [
       "夜玥漾",
       "若糜",
       "物理看花",
-      "叫我第一名"
+      "叫我第一名",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b"
     ]
   },
   {
@@ -464,7 +671,18 @@ window.FLOWERS = [
       "物理看花",
       "叫我第一名",
       "ʚ 離寶 ɞ",
-      "葡萄啵啵🥄"
+      "葡萄啵啵🥄",
+      "gt11a3d84if",
+      "gt1kkwtmea7",
+      "gt021477vjj",
+      "gt14pin7s3e",
+      "gt1j7d2y02w",
+      "gt1d58owgxn",
+      "gt147r7o2qz",
+      "gt021j90c1b",
+      "gt020lrdk1b",
+      "gt06f9a8bwx",
+      "gt02ziuyilz"
     ]
   },
   {
