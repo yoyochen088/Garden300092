@@ -1,0 +1,339 @@
+﻿/* ════════════════════════════════════════════
+   個人花展 - 專用樣式
+   ════════════════════════════════════════════ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Microsoft JhengHei', 'Segoe UI', sans-serif;
+  background: #fff5f8;
+  color: #3d1a2e;
+  min-height: 100vh;
+  padding: 0 0 80px;
+}
+
+/* ── Header（天條）── */
+header {
+  background: linear-gradient(135deg, #c2185b 0%, #e91e8c 60%, #f48fb1 100%);
+  color: #fff;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(194,24,91,0.3);
+}
+.guild-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s;
+  border: 1.5px solid rgba(255,255,255,0.5);
+}
+nav a:hover, nav a.active { background: rgba(255,255,255,0.25); }
+
+/* 手機：header 改兩排 */
+@media (max-width: 600px) {
+  header {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 8px 16px;
+    gap: 6px;
+  }
+  .guild-name { width: 100%; }
+  nav { width: 100%; justify-content: flex-start; }
+  nav a { font-size: 0.82rem; padding: 5px 10px; }
+}
+
+/* ── 頂部操作列 ── */
+.top-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.85; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: #e91e8c; color: #fff; }
+.btn-secondary { background: #fff; color: #3d1a2e; border: 2px solid #ddd; }
+
+/* ── 搜尋列 ── */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.search-bar input {
+  padding: 10px 16px;
+  border: 2px solid #f48fb1;
+  border-radius: 24px;
+  font-size: 1rem;
+  outline: none;
+  width: 260px;
+  background: #fff;
+  color: #3d1a2e;
+}
+.search-bar input:focus { border-color: #e91e8c; }
+
+/* ── 花展卡片（可截圖區域）── */
+#showcase-card {
+  max-width: 680px;
+  margin: 0 auto;
+  background: linear-gradient(160deg, #fff5f8 0%, #fce4ec 100%);
+  border-radius: 20px;
+  padding: 24px 20px 28px;
+  box-shadow: 0 4px 24px rgba(233,30,140,0.12);
+  position: relative;
+}
+
+/* ── 用戶資訊區 ── */
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed #f48fb1;
+}
+
+.user-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e91e8c, #f48fb1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #fff;
+  flex-shrink: 0;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(233,30,140,0.3);
+}
+
+.user-info { flex: 1; }
+.user-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #c2185b;
+  letter-spacing: 1px;
+}
+.user-stats {
+  font-size: 0.82rem;
+  color: #9e6b7e;
+  margin-top: 3px;
+}
+
+.guild-badge {
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, #c2185b, #e91e8c);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.5;
+  box-shadow: 0 2px 8px rgba(194,24,91,0.3);
+  letter-spacing: 1px;
+}
+
+/* ── 品質區塊 ── */
+.quality-section {
+  margin-bottom: 20px;
+  border-radius: 16px;
+  padding: 16px 14px;
+}
+
+/* 仙品：粉紅漸層背景 */
+.quality-section.q-仙 {
+  background: linear-gradient(135deg, rgba(255,78,138,0.08) 0%, rgba(255,140,66,0.08) 100%);
+  border: 2px solid rgba(255,78,138,0.35);
+}
+/* 華品：橘金漸層背景 */
+.quality-section.q-華 {
+  background: linear-gradient(135deg, rgba(255,140,0,0.08) 0%, rgba(255,179,71,0.08) 100%);
+  border: 2px solid rgba(255,140,0,0.35);
+}
+/* 珍品：紫色背景 */
+.quality-section.q-珍 {
+  background: linear-gradient(135deg, rgba(155,89,182,0.08) 0%, rgba(195,155,211,0.08) 100%);
+  border: 2px solid rgba(155,89,182,0.3);
+}
+/* 普品：藍色背景 */
+.quality-section.q-普 {
+  background: linear-gradient(135deg, rgba(74,144,217,0.08) 0%, rgba(116,185,255,0.08) 100%);
+  border: 2px solid rgba(74,144,217,0.3);
+}
+/* 凡品：灰綠背景 */
+.quality-section.q-凡 {
+  background: linear-gradient(135deg, rgba(127,140,110,0.08) 0%, rgba(168,184,154,0.08) 100%);
+  border: 2px solid rgba(127,140,110,0.3);
+}
+
+.quality-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.quality-badge {
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+}
+.quality-badge.q-仙 { background: linear-gradient(135deg,#ff4e8a,#ff8c42); box-shadow: 0 0 8px rgba(255,78,138,0.4); }
+.quality-badge.q-華 { background: linear-gradient(135deg,#ff8c00,#ffb347); }
+
+.quality-count {
+  font-size: 0.8rem;
+  color: #9e6b7e;
+}
+
+/* ── 花卉網格 ── */
+.flower-grid-showcase {
+  border-radius: 10px;
+  padding: 8px 4px;
+}
+
+.flower-items {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.flower-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+.flower-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid;
+  background: #fce4ec;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.q-仙 .flower-circle { border-color: #ff6b9d; }
+.q-華 .flower-circle { border-color: #ffb347; }
+.q-珍 .flower-circle { border-color: #c39bd3; }
+.q-普 .flower-circle { border-color: #74b9ff; }
+.q-凡 .flower-circle { border-color: #a8b89a; }
+
+.flower-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 60%; /* 往下移跳過上方文字區 */
+  transform: scale(1.35);   /* 放大讓主體填滿圓圈 */
+  transform-origin: 50% 60%;
+}
+
+.flower-label {
+  font-size: 0.82rem;
+  color: #5d3a4a;
+  text-align: center;
+  line-height: 1.3;
+  max-width: 84px;
+  word-break: break-all;
+}
+
+.flower-label {
+  font-size: 0.6rem;
+  color: #5d3a4a;
+  text-align: center;
+  line-height: 1.2;
+  max-width: 60px;
+  word-break: break-all;
+}
+
+/* ── 空狀態 ── */
+.empty-state {
+  text-align: center;
+  padding: 30px;
+  color: #9e6b7e;
+  font-size: 0.9rem;
+}
+
+/* ── 載入中 ── */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: #9e6b7e;
+}
+.loading-spinner {
+  display: inline-block;
+  width: 36px; height: 36px;
+  border: 3px solid #f8bbd0;
+  border-top-color: #e91e8c;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── 底部浮動按鈕 ── */
+.fab-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: #fff;
+  border-top: 1px solid #f8bbd0;
+  padding: 10px 16px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  box-shadow: 0 -2px 10px rgba(233,30,140,0.08);
+}
+
+/* ── RWD ── */
+@media (min-width: 768px) {
+  body { padding: 32px 24px 80px; }
+  #showcase-card { padding: 32px 28px 36px; }
+  .flower-items { grid-template-columns: repeat(7, 1fr); gap: 12px; }
+  .flower-circle { width: 88px; height: 88px; }
+  .flower-label { font-size: 0.78rem; max-width: 84px; }
+  .user-name { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .flower-items { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .flower-circle { width: 72px; height: 72px; }
+  .flower-label { font-size: 0.75rem; max-width: 76px; }
+}
