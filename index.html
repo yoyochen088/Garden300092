@@ -264,7 +264,8 @@ function buildGameIdMap() {
   MEMBERS.forEach(m => {
     const id = m.gameId || m.gameid || '';
     const nick = m.nickname || id;
-    if (id) map[id] = nick;
+    // 只加入在職成員
+    if (id && !m.left) map[id] = nick;
   });
   return map;
 }
@@ -281,7 +282,7 @@ function showPage(pageId, link) {
 // ── 花卉圖鑑 ──
 function applyFilters() {
   const gameIdMap = buildGameIdMap();
-  const ownerDisplay = o => gameIdMap[o] || o;
+  const ownerDisplay = o => gameIdMap[o] || null;
   const q       = document.getElementById('searchInput').value.trim().toLowerCase();
   const quality = document.getElementById('filterQuality').value;
   const score   = document.getElementById('filterScore').value;
@@ -289,7 +290,7 @@ function applyFilters() {
   const sort    = document.getElementById('sortBy').value;
 
   let list = FLOWERS.filter(f => {
-    const ownerNames = f.owners.map(ownerDisplay);
+    const ownerNames = f.owners.map(ownerDisplay).filter(Boolean);
     const matchQ = !q || f.name.toLowerCase().includes(q) || ownerNames.some(o => o.toLowerCase().includes(q));
     return matchQ
       && (!quality || f.quality === quality)
@@ -324,7 +325,7 @@ function renderFlowers(list, ownerDisplay) {
     return;
   }
   document.getElementById('flowerGrid').innerHTML = list.map(f => {
-    const ownerNames = f.owners.map(ownerDisplay);
+    const ownerNames = f.owners.map(ownerDisplay).filter(Boolean);
     const ownerTags = ownerNames.length
       ? ownerNames.map(o => `<span class="owner-tag">${o}</span>`).join('')
       : '<span class="no-owner">尚無人擁有</span>';
