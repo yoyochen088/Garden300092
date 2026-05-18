@@ -254,8 +254,8 @@ function renderT(){
 
 async function saveFlowers(){
   // 找出有變動的花（quality/score/obtain/order）
-  const changed=fd.filter((f,i)=>{
-    const o=origFd[i];
+  const changed=fd.filter((f)=>{
+    const o=origFd.find(of=>of.id===f.id);
     if(!o)return true;
     return f.name!==o.name||f.quality!==o.quality||f.score!==o.score||f.obtain!==o.obtain||f.order!==o.order;
   });
