@@ -4,9 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>管理編輯器</title>
-  <script src="config.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+  <script>
+  const APPS_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxFNC3q4JJFdxLnlQ2M2OgD8qVTIXrN1tZ6Y6rZQiUs2ku-Es9DkbWrlr-XT_3Rsgfu4Q/exec';
+  const SHEET_ID='1hKW9-wVYfZAjP4YIGJY6ngK8cFWuhDn1OxGvPnHLGDg';
+  const API_KEY='AIzaSyALI8OL0bN4yg4PTV3q_hwIsdrkkpcJ0Tg';
+  const GITHUB_CONFIG = {
+    owner: 'yoyochen088',
+    repo:   'Garden400117',
+    branch: 'main'
+  };
+  </script>
   <style>
-    :root{--pink:#e91e8c;--pink-light:#fce4ec;--pink-mid:#f48fb1;--pink-dark:#c2185b;--bg:#fff5f8;--border:#f8bbd0;--radius:10px;--shadow:0 2px 10px rgba(233,30,140,.1);}
+    :root{--pink:#e96a1e;--pink-light:#fef0e7;--pink-mid:#f4a46a;--pink-dark:#c2510b;--bg:#fff8f5;--border:#f8d5b0;--radius:10px;--shadow:0 2px 10px rgba(233,106,30,.1);}
     *{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Microsoft JhengHei',sans-serif;background:var(--bg);color:#3d1a2e;padding:0 0 100px;}
     h1{text-align:center;color:var(--pink-dark);font-size:1.3rem;margin-bottom:4px;padding-top:20px;}
@@ -28,12 +38,12 @@
     .fbar{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
     .twrap{overflow-x:auto;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);}
     table{width:100%;border-collapse:collapse;min-width:700px;}
-    thead tr{background:linear-gradient(135deg,#c2185b,#e91e8c);color:#fff;}
+    thead tr{background:linear-gradient(135deg,#c2510b,#e96a1e);color:#fff;}
     th{padding:11px 12px;font-size:.88rem;white-space:nowrap;text-align:left;}
     td{padding:7px 8px;border-bottom:1px solid var(--border);vertical-align:middle;}
     tbody tr:last-child td{border-bottom:none;}
     tbody tr:hover{background:var(--pink-light);}
-    .thumb{width:52px;height:52px;object-fit:cover;border-radius:8px;border:1px solid var(--border);background:#fce4ec;display:block;}
+    .thumb{width:52px;height:52px;object-fit:cover;border-radius:8px;border:1px solid var(--border);background:#fef0e7;display:block;}
     .fname{font-weight:600;font-size:.9rem;color:var(--pink-dark);}
     .fname-input{font-weight:600;font-size:.9rem;color:var(--pink-dark);border:1.5px solid transparent;background:transparent;padding:4px 6px;border-radius:6px;transition:border-color .2s,background .2s;}
     .fname-input:hover{border-color:var(--pink-mid);background:var(--bg);}
@@ -56,20 +66,42 @@
     .cso.q-普{background:linear-gradient(135deg,#4a90d9,#74b9ff);color:#fff;}
     .cso.q-凡{background:linear-gradient(135deg,#7f8c6e,#a8b89a);color:#fff;}
     .loading{text-align:center;padding:40px;color:#9e6b7e;}
-    .bbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:10px 12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;box-shadow:0 -2px 10px rgba(233,30,140,.08);}
+    .bbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:10px 12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;box-shadow:0 -2px 10px rgba(233,106,30,.08);}
     .btn{padding:9px 18px;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;border:none;transition:opacity .2s;}
     .btn:hover{opacity:.85;}.btn:disabled{opacity:.5;cursor:not-allowed;}
     .btn-sec{background:var(--pink-light);color:var(--pink-dark);border:1.5px solid var(--pink-mid);}
+    @media(max-width:600px){
+      nav { display:none !important; }
+      .hamburger { display:flex !important; }
+    }
   </style>
 </head>
 <body>
-<header style="background:linear-gradient(135deg,#c2185b 0%,#e91e8c 60%,#f06292 100%);color:#fff;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(194,24,91,0.3);">
-  <div style="font-size:1.1rem;font-weight:700;letter-spacing:2px;">♡十里桃花♡ 管理編輯器</div>
-  <nav style="display:flex;gap:8px;">
-    <a href="index.html" style="color:#fff;text-decoration:none;padding:6px 14px;border-radius:20px;font-size:0.9rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.5);">花卉圖鑑</a>
-    <a href="flower-showcase.html" style="color:#fff;text-decoration:none;padding:6px 14px;border-radius:20px;font-size:0.9rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.5);">個人花展</a>
+<header style="background:linear-gradient(135deg,#c2510b 0%,#e96a1e 60%,#f4a46a 100%);color:#fff;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(194,81,11,0.3);">
+  <a href="index.html" style="font-size:1.25rem;font-weight:700;letter-spacing:2px;white-space:nowrap;text-decoration:none;color:inherit;">璀璨 <small style="font-weight:400;opacity:0.8;font-size:0.7rem;">[400117]</small></a>
+  <nav style="display:flex;gap:6px;flex-wrap:nowrap;">
+    <a href="index.html" data-short="圖鑑" style="color:#fff;text-decoration:none;padding:6px 12px;border-radius:20px;font-size:0.85rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.5);white-space:nowrap;"><span>花卉圖鑑</span></a>
+    <a href="index.html#id-page" data-short="成員" style="color:#fff;text-decoration:none;padding:6px 12px;border-radius:20px;font-size:0.85rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.5);white-space:nowrap;"><span>公會成員</span></a>
+    <a href="flower-showcase.html" data-short="花展" style="color:#fff;text-decoration:none;padding:6px 12px;border-radius:20px;font-size:0.85rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.5);white-space:nowrap;"><span>個人花展</span></a>
+    <a href="member-editor.html" data-short="擁有" style="color:#fff;text-decoration:none;padding:6px 12px;border-radius:20px;font-size:0.85rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.5);white-space:nowrap;"><span>花卉擁有</span></a>
+    <a href="editor.html" class="active" data-short="管理" style="color:#fff;text-decoration:none;padding:6px 12px;border-radius:20px;font-size:0.85rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.5);background:rgba(255,255,255,0.25);white-space:nowrap;"><span>管理</span></a>
   </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="選單" style="display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;">
+    <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s;"></span>
+    <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s;"></span>
+    <span style="display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s;"></span>
+  </button>
 </header>
+
+<div id="nav-overlay" onclick="closeMobileNav()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:150;"></div>
+<div id="mobile-nav" style="position:fixed;top:0;right:-260px;width:240px;height:100vh;background:linear-gradient(160deg,#c2510b,#e96a1e);z-index:200;padding:70px 20px 30px;display:flex;flex-direction:column;gap:8px;transition:right 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:-4px 0 20px rgba(0,0,0,0.2);">
+  <button onclick="closeMobileNav()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;">✕</button>
+  <a href="index.html" style="color:#fff;text-decoration:none;padding:12px 16px;border-radius:12px;font-size:1rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.3);">🌸 花卉圖鑑</a>
+  <a href="index.html#id-page" style="color:#fff;text-decoration:none;padding:12px 16px;border-radius:12px;font-size:1rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.3);">👥 公會成員</a>
+  <a href="flower-showcase.html" style="color:#fff;text-decoration:none;padding:12px 16px;border-radius:12px;font-size:1rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.3);">🖼️ 個人花展</a>
+  <a href="member-editor.html" style="color:#fff;text-decoration:none;padding:12px 16px;border-radius:12px;font-size:1rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.3);">✅ 花卉擁有</a>
+  <a href="editor.html" style="color:#fff;text-decoration:none;padding:12px 16px;border-radius:12px;font-size:1rem;font-weight:600;border:1.5px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.2);">⚙️ 管理</a>
+</div>
 <div class="page-content">
 <h1>⚙️ 管理編輯器</h1>
 <p class="subtitle">成員管理 / 花卉資料編輯</p>
@@ -82,7 +114,7 @@
   <button class="btn-add" onclick="addM()">＋ 新增成員</button>
 </div>
 <div id="tf" class="panel">
-<!-- 新增花卉區 -->
+  <!-- 新增花卉區 -->
   <div id="add-flower-area" style="background:#fff;border-radius:var(--radius);border:1.5px dashed var(--pink-mid);padding:14px 16px;margin-bottom:14px;display:none;">
     <div style="font-size:.9rem;font-weight:700;color:var(--pink-dark);margin-bottom:10px;">&#10133; 新增花卉</div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
@@ -109,7 +141,6 @@
     <div id="af-status" style="display:none;margin-top:8px;padding:8px 12px;border-radius:8px;font-size:.85rem;"></div>
   </div>
   <button class="btn-add" onclick="toggleAddFlower()" style="margin-bottom:14px;">&#10133; 新增花卉</button>
-
   <div class="fbar">
     <label style="font-size:.9rem;font-weight:600;color:var(--pink-dark);">品質：</label>
     <select id="qf" onchange="renderT()" style="width:auto;">
@@ -133,6 +164,16 @@
   <button class="btn" style="background:#34a853;color:#fff;display:none;" id="sfBtn" onclick="saveFlowers()">&#128190; 儲存花卉</button>
 </div>
 <script>
+function toggleMobileNav() {
+  const open = document.getElementById('mobile-nav').style.right === '0px';
+  document.getElementById('mobile-nav').style.right = open ? '-260px' : '0px';
+  document.getElementById('nav-overlay').style.display = open ? 'none' : 'block';
+}
+function closeMobileNav() {
+  document.getElementById('mobile-nav').style.right = '-260px';
+  document.getElementById('nav-overlay').style.display = 'none';
+}
+
 const QL=['仙','華','珍','普','凡'],SL=[14,21,23,25,28,30];
 const OL=['等級','活動','花圃','花坊','VIP','週花','星河映蕊','花靈商店','精靈花','卡冊','心聯盟','累積儲値'];
 const QO={'仙':0,'華':1,'珍':2,'普':3,'凡':4};
@@ -161,13 +202,14 @@ function renderM(){
   const el=document.getElementById('mlist');
   const active=members.filter(m=>!m.left);
   if(!active.length){el.innerHTML='<p style="color:#9e6b7e;font-size:.9rem;margin-bottom:12px;">尚無在職成員。</p>';return;}
-  el.innerHTML=active.map(m=>{
+  el.innerHTML='<p style="font-size:0.85rem;color:var(--pink-dark);font-weight:600;margin-bottom:12px;">目前公會成員：'+active.length+' 人</p>'
+  +active.map(m=>{
     const i=members.indexOf(m);
     return '<div class="card"><div class="mrow">'
       +'<div><div class="lbl">遇戲 ID</div><input type="text" value="'+m.gameId+'" oninput="members['+i+'].gameId=this.value" placeholder="遇戲 ID"/></div>'
       +'<div><div class="lbl">昵稱</div><input type="text" value="'+m.nickname+'" oninput="members['+i+'].nickname=this.value" placeholder="昵稱"/></div>'
       +'<div><div class="lbl">職位</div><select onchange="members['+i+'].note=this.value">'
-      +['會長','副會長','理事','菁英','成員'].map(r=>'<option '+(m.note===r?'selected':'')+'>'+r+'</option>').join('')
+      +['會長','副會長','理事','菁英','成員','分會成員'].map(r=>'<option '+(m.note===r?'selected':'')+'>'+r+'</option>').join('')
       +'</select></div>'
       +'<div><button class="btn-rm" onclick="members['+i+'].left=true;renderM()">移除</button></div>'
       +'</div></div>';
@@ -239,10 +281,19 @@ document.addEventListener('click',e=>{if(!e.target.closest('.cs'))document.query
 function renderT(){
   const qf=document.getElementById('qf').value,of=document.getElementById('of').value;
   const fil=fd.map((f,i)=>({f,i})).filter(({f})=>(!qf||f.quality===qf)&&(!of||f.obtain===of))
-    .sort((a,b)=>{const qd=(QO[a.f.quality]??9)-(QO[b.f.quality]??9);return qd||((a.f.order??999)-(b.f.order??999));});
+    .sort((a,b)=>{
+      // 新增的（有 _localPreview）排最前
+      if (a.f._localPreview && !b.f._localPreview) return -1;
+      if (!a.f._localPreview && b.f._localPreview) return 1;
+      const qd=(QO[a.f.quality]??9)-(QO[b.f.quality]??9);
+      return qd||((a.f.order??999)-(b.f.order??999));
+    });
   document.getElementById('fc').textContent='顯示 '+fil.length+' / '+fd.length+' 筆';
   document.getElementById('tb').innerHTML=fil.map(({f,i})=>
-    '<tr><td><img class="thumb" src="'+f.img+'" alt="'+f.name+'" onerror="this.style.opacity=0.3"></td>'
+    '<tr style="'+(f._localPreview?'background:#e8f5e9;':'')+'">'
+    +'<td><img class="thumb" src="'+(f._localPreview||f.img)+'" alt="'+f.name+'" onerror="this.style.opacity=0.3">'
+    +(f._localPreview?'<div style="font-size:.65rem;color:#2e7d32;font-weight:700;">NEW</div>':'')
+    +'</td>'
     +'<td><input type="text" class="fname-input" value="'+f.name+'" onchange="fd['+i+'].name=this.value" style="width:100%;min-width:120px;"></td>'
     +'<td><input type="number" min="1" value="'+(f.order||i+1)+'" onchange="fd['+i+'].order=Number(this.value)" style="width:60px;"></td>'
     +'<td>'+buildQS(i,f.quality)+'</td>'
@@ -253,27 +304,47 @@ function renderT(){
 }
 
 async function saveFlowers(){
-  // 找出有變動的花（quality/score/obtain/order）
-  const changed=fd.filter((f)=>{
-    const o=origFd.find(of=>of.id===f.id);
-    if(!o)return true;
+  // 區分新增（origFd 裡沒有）和修改（有但內容不同）
+  const origIds = new Set(origFd.map(f => f.id));
+  const toAdd = fd.filter(f => !origIds.has(f.id));
+  const toUpdate = fd.filter((f, i) => {
+    const o = origFd.find(of => of.id === f.id);
+    if (!o) return false;
     return f.name!==o.name||f.quality!==o.quality||f.score!==o.score||f.obtain!==o.obtain||f.order!==o.order;
   });
-  if(!changed.length){alert('花卡資料沒有變動');return;}
-  const btn=document.getElementById('sfBtn');
-  btn.innerHTML='⏳ 儲存中...';btn.disabled=true;
-  try{
-    for(const f of changed){
-      await new Promise(res=>{
-        const p=encodeURIComponent(JSON.stringify({action:'updateFlower',id:f.id,name:f.name,quality:f.quality,score:f.score,obtain:f.obtain,order:f.order}));
-        const img=new Image();img.onload=img.onerror=()=>res();
-        img.src=APPS_SCRIPT_URL+'?data='+p;
+
+  if (!toAdd.length && !toUpdate.length) { alert('花卡資料沒有變動'); return; }
+
+  const btn = document.getElementById('sfBtn');
+  btn.innerHTML = '⏳ 儲存中...'; btn.disabled = true;
+  try {
+    // 新增的花
+    for (const f of toAdd) {
+      await new Promise(res => {
+        const p = encodeURIComponent(JSON.stringify({
+          action: 'addFlower',
+          id: f.id, name: f.name, quality: f.quality,
+          score: f.score, obtain: f.obtain, order: f.order, img: f.img
+        }));
+        const img = new Image(); img.onload = img.onerror = () => res();
+        img.src = APPS_SCRIPT_URL + '?data=' + p;
       });
     }
-    alert('✅ 花卡資料已儲存！（'+changed.length+' 筆變動）');
-    origFd=JSON.parse(JSON.stringify(fd));
-  }catch(e){alert('❌ 儲存失敗：'+e.message);}
-  finally{btn.innerHTML='💾 儲存花卡';btn.disabled=false;}
+    // 修改的花
+    for (const f of toUpdate) {
+      await new Promise(res => {
+        const p = encodeURIComponent(JSON.stringify({
+          action: 'updateFlower', id: f.id, name: f.name, quality: f.quality,
+          score: f.score, obtain: f.obtain, order: f.order
+        }));
+        const img = new Image(); img.onload = img.onerror = () => res();
+        img.src = APPS_SCRIPT_URL + '?data=' + p;
+      });
+    }
+    alert(`✅ 花卡資料已儲存！（新增 ${toAdd.length} 筆，修改 ${toUpdate.length} 筆）`);
+    origFd = JSON.parse(JSON.stringify(fd));
+  } catch(e) { alert('❌ 儲存失敗：' + e.message); }
+  finally { btn.innerHTML = '💾 儲存花卉'; btn.disabled = false; }
 }
 
 // ── 新增花卉 ──
@@ -388,6 +459,23 @@ function showStatus(el, msg, type) {
 }
 
 (async()=>{
+  // ── 進入驗證 ──
+  const pw = prompt('請輸入管理密碼：');
+  if (!pw) { location.href = 'index.html'; return; }
+  try {
+    const payload = encodeURIComponent(JSON.stringify({ action: 'checkPassword', pw }));
+    const res = await fetch(`${APPS_SCRIPT_URL}?data=${payload}`);
+    const data = await res.json();
+    if (!data.ok) { alert('密碼錯誤'); location.href = 'index.html'; return; }
+  } catch(e) {
+    // Apps Script 冷啟動可能失敗，自動重試一次
+    try {
+      const payload = encodeURIComponent(JSON.stringify({ action: 'checkPassword', pw }));
+      const res = await fetch(`${APPS_SCRIPT_URL}?data=${payload}`);
+      const data = await res.json();
+      if (!data.ok) { alert('密碼錯誤'); location.href = 'index.html'; return; }
+    } catch(e2) { alert('驗證失敗，請稍後再試'); location.href = 'index.html'; return; }
+  }
   await loadM();
   await loadF();
   document.getElementById('sfBtn').style.display='none';
